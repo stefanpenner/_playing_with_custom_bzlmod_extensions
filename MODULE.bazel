@@ -1,0 +1,22 @@
+module(name = "my-module")
+
+my_extension = use_extension(":extensions.bzl", "my_extension")
+
+my_extension.from_file(package_lock = "//:package-lock.json")
+
+bazel_dep( name = "node_modules_es6_promise" )
+bazel_dep( name = "node_modules_rsvp" )
+
+local_path_override(
+    module_name = "node_modules_es6_promise",
+    path = "overrides/es6-promise/",
+)
+
+local_path_override(
+    module_name = "node_modules_rsvp",
+    path = "overrides/rsvp/",
+)
+use_repo(my_extension,
+    # "node_modules_es6_promise", # keep <--
+    # "node_modules_rsvp", # keep
+)

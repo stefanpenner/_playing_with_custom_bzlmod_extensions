@@ -1,0 +1,12 @@
+
+genrule(
+    name = "the-rule",
+    srcs = [
+        "@node_modules_es6_promise",
+        "@node_modules_rsvp"
+    ],
+    outs = ["out"],
+    cmd = "tree > $(OUTS)",
+    executable = False,
+    message = "the message",
+)

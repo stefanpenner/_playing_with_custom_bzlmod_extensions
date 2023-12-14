@@ -1,0 +1,5 @@
+filegroup(
+    name = "node_modules_es6_promise",
+    srcs = glob(["**"]),
+    visibility = ["//visibility:public"],
+)
